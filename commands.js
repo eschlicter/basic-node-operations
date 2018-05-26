@@ -17,6 +17,9 @@ function evaluateCmd(userInput) {
     //we will add the functionality of echo next within the object commandLibrary
      commandLibrary.echo(userInputArray.slice(1).join(" "));
      break;
+    case "cat":
+    commandLibrary.cat(userInputArray.slice(1));
+    break;
  }
 }
 
@@ -25,6 +28,14 @@ const commandLibrary = {
   //add echo command
   "echo": function(userInput){
     done(userInput);
+  },
+  //add cat command
+  "cat": function(fullPath) {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (err, data) => {
+        if (err) throw err;
+        done(data);
+    });
   }
 };
 
