@@ -50,3 +50,14 @@ First, the duplicate lines are removed and then the newlines, words, and bytes a
 
 >Reverse String:
 Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+```
+function reverseString(inputString) {
+  var reversedString = [];
+  var splitString = inputString.split(' ');
+  var reversedElements = splitString.forEach((element) => {
+    reversedString.push(element.split('').reverse().join(''));
+  });
+  return reversedString.join(' ');
+}
+```
